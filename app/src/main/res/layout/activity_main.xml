@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/displayText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="50dp"
+        android:text="*** BOTTLE DISPENSER ***"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/displayMoney"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
+
+    <TextView
+        android:id="@+id/displayMoney"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="32dp"
+        android:text="0.00 €"
+        android:textSize="34sp"
+        app:layout_constraintBottom_toTopOf="@+id/flow"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
+
+    <Button
+        android:id="@+id/addMoneyButton"
+        android:layout_width="160dp"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@android:color/holo_blue_dark"
+        android:onClick="addMoneyButton"
+        android:text="Add Money"
+        tools:layout_editor_absoluteX="30dp"
+        tools:layout_editor_absoluteY="457dp" />
+
+    <Button
+        android:id="@+id/returnMoneyButton"
+        android:layout_width="160dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="32dp"
+        android:backgroundTint="@android:color/holo_orange_dark"
+        android:onClick="returnMoneyButton"
+        android:text="Return Money"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:layout_editor_absoluteY="353dp" />
+
+    <Button
+        android:id="@+id/buyBottleButton"
+        android:layout_width="160dp"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@android:color/holo_green_light"
+        android:onClick="buyBottleButton"
+        android:text="Buy Bottle"
+        tools:layout_editor_absoluteX="125dp"
+        tools:layout_editor_absoluteY="357dp" />
+
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginBottom="160dp"
+        android:spinnerMode="dialog"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/printReceiptButton"
+        app:layout_constraintHorizontal_bias="0.444"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <SeekBar
+        android:id="@+id/amountBar"
+        style="@android:style/Widget.Material.SeekBar.Discrete"
+        android:layout_width="160dp"
+        android:layout_height="40dp"
+        android:max="4"
+        android:paddingStart="10dp"
+        android:paddingEnd="10dp"
+        android:progress="3"
+        android:progressTint="#00FFFFFF"
+        android:tickMarkTint="@color/teal_200"
+        tools:layout_editor_absoluteX="57dp"
+        tools:layout_editor_absoluteY="390dp" />
+
+    <TextView
+        android:id="@+id/bar1"
+        android:layout_width="20dp"
+        android:layout_height="wrap_content"
+        android:text="0.1"
+        android:textAlignment="center"
+        android:textSize="14sp"
+        tools:layout_editor_absoluteX="32dp"
+        tools:layout_editor_absoluteY="393dp" />
+
+    <TextView
+        android:id="@+id/bar2"
+        android:layout_width="20dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="0.2"
+        android:textAlignment="center"
+        android:textSize="14sp"
+        tools:layout_editor_absoluteX="63dp"
+        tools:layout_editor_absoluteY="393dp" />
+
+    <TextView
+        android:id="@+id/bar3"
+        android:layout_width="20dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="0.5"
+        android:textAlignment="center"
+        android:textSize="14sp"
+        tools:layout_editor_absoluteX="145dp"
+        tools:layout_editor_absoluteY="393dp" />
+
+    <TextView
+        android:id="@+id/bar4"
+        android:layout_width="20dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="1"
+        android:textAlignment="center"
+        android:textSize="14sp"
+        tools:layout_editor_absoluteX="226dp"
+        tools:layout_editor_absoluteY="393dp" />
+
+    <TextView
+        android:id="@+id/bar5"
+        android:layout_width="20dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="2"
+        android:textAlignment="center"
+        android:textSize="14sp"
+        tools:layout_editor_absoluteX="296dp"
+        tools:layout_editor_absoluteY="393dp" />
+
+    <androidx.constraintlayout.helper.widget.Flow
+        android:id="@+id/flow"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="8dp"
+        app:constraint_referenced_ids="buyBottleButton,returnMoneyButton"
+        app:flow_horizontalAlign="center"
+        app:flow_horizontalGap="20dp"
+        app:flow_horizontalStyle="spread_inside"
+        app:layout_constraintBottom_toTopOf="@+id/flow4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <androidx.constraintlayout.helper.widget.Flow
+        android:id="@+id/flow2"
+        android:layout_width="160dp"
+        android:layout_height="20dp"
+        app:constraint_referenced_ids="bar1,bar2,bar3,bar4,bar5"
+        app:flow_horizontalStyle="spread_inside"
+        tools:layout_editor_absoluteX="32dp"
+        tools:layout_editor_absoluteY="353dp" />
+
+    <androidx.constraintlayout.helper.widget.Flow
+        android:id="@+id/flow3"
+        android:layout_width="160dp"
+        android:layout_height="70dp"
+        android:layout_marginStart="32dp"
+        android:orientation="vertical"
+        app:constraint_referenced_ids="flow2,amountBar"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="353dp" />
+
+    <androidx.constraintlayout.helper.widget.Flow
+        android:id="@+id/flow4"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="16dp"
+        android:orientation="horizontal"
+        app:constraint_referenced_ids="flow3,addMoneyButton"
+        app:flow_horizontalGap="20dp"
+        app:flow_horizontalStyle="spread_inside"
+        app:layout_constraintBottom_toTopOf="@+id/spinner"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/bottleInfo"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="24dp"
+        android:textAlignment="viewStart"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spinner" />
+
+    <Button
+        android:id="@+id/printReceiptButton"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_marginEnd="32dp"
+        android:backgroundTint="@android:color/darker_gray"
+        android:onClick="printReceipt"
+        android:text="Receipt"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/spinner" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
